@@ -1,0 +1,25 @@
+# RoutePool PK — Next.js implementation
+
+## Product and workspace
+
+The user has explicitly requested the exact Next.js App Router application in the attached brief. Build a standalone Next.js / TypeScript / Tailwind / Lucide / React-Leaflet / Supabase web application in `routepool-web/`. Preserve the already-bound Expo starter outside this subdirectory. No second managed WebDev resource can be created in this task; therefore do not replace Expo, occupy its fixed 8081/3000 listeners, or claim a managed web Preview. Serve the independent Next.js app on 3001 for checks, and deliver its runnable source archive. Vercel uses this subdirectory as the project root.
+
+## Implementation approach
+
+A shared application shell gives desktop users an off-center left navigation rail and a top Driver / Commuter / Parent role switch; mobile users get a compact header and thumb-accessible bottom navigation. `/` redirects to `/tracking`. `/search` contains pickup and destination inputs, AC Van / Car / Under PKR 10,000 filters, complete matching route cards and validated parent-contact booking dialogs. `/driver` contains the full route publishing form, emerald START TRIP, red END TRIP, route-specific booking approvals, and Boarded / Dropped attendance toggles. Show the required GPS-duration notice. `/tracking` dynamically loads Leaflet on the client, drawing an Islamabad route and moving van marker, live demonstration controls, event stream and a red mock SOS broadcast action.
+
+Use realistic Islamabad/Rawalpindi samples for I-8, G-10, NUST H-12, FAST, MYU and Blue Area. Prices are always `PKR X,XXX/month`. Local browser persistence supports fully interactive no-credential demo behavior. Demo driver CNIC badges are explicitly sample verification, not a real identity service. Emit all three requested geofence messages and times during simulation. Demo GPS is explicitly simulation and stops when ended. SOS is a mock in-app broadcast, not emergency dispatch.
+
+Supabase is configured from `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`. Provide active-route querying, authenticated booking/route/trip mutations, Realtime trip subscriptions, and an account page for Supabase email/password sessions. The role switch is demo navigation, not security authorization. Authenticated production roles come from the users profile and RLS. Remote errors are surfaced, never disguised as saved remote data. When unconfigured, local demo remains functional. Output the exact four requested SQL tables, plus security constraints/policies, transactional booking approval, authenticated profile linkage, and Realtime publication. Do not execute external SQL without credentials. Preserve the unrelated Expo/MySQL backend.
+
+## Design
+
+Reuse the user's emerald #10B981, deep navy #0F172A and slate-light #F8FAFC. The selected movement is civic transit wayfinding with quiet editorial hierarchy. Core principles are scannable safety states, generous whitespace, one dominant action and accessible mobile controls. The layout is an asymmetric map-led workspace, not a centered generic card grid. Signature motifs are a route-pin mark, subtle status dots and a vertical stop timeline. Emerald signals reassurance and motion, navy anchors trust, pale slate gives map detail room, and red is reserved for SOS and ending trips. Interactions return clear feedback; simulation and persistent data are distinguished. Use short marker/status transitions and respect reduced motion. Typography pairs strong system-sans titles with compact metadata and tabular numbers. Brand essence: monthly rides and clearer journeys for Pakistani families; reassuring, practical, local. Voice examples: “A little peace of mind, every morning.” and “Your seat. Your route. Sorted.” Wordmark: a simple custom path-and-pin logo with heavy RoutePool and an understated PK suffix; emerald is the ownable brand color.
+
+## Project structure
+
+`app/` owns the root layout, redirects, route screens, account/auth callbacks, help and rides pages. `components/` owns navigation, forms, route cards, modals, shared UI and the client-only map. `lib/` owns types, realistic seed data, formatting/filtering/validation helpers, persistent demo state and the Supabase adapter. `public/` owns the source-controlled route-pin SVG and route manifest. `supabase/migrations/` owns SQL schema/security. `tests/` owns focused deterministic domain coverage. `README.md`, `.env.example`, and `supabase/README.md` explain setup, integration limits and Vercel deployment.
+
+## Build and delivery
+
+Pin dependencies and package-manager lifecycle permissions before installation. Type-check, test and production-build the isolated Next.js root; use a read-only integration agent to find confirmed connection defects. Start only the separate Next listener on 3001, preserving Expo ports. Deliver a clean source ZIP including lockfile, SQL and setup docs, excluding secrets, node_modules and generated output. No actual Supabase connectivity, CNIC verification, emergency dispatch, native build, Vercel deployment or managed Next web Preview is claimed without corresponding setup/results.
